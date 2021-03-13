@@ -10,7 +10,7 @@ class CategoryItem extends StatelessWidget {
     //Pelo navigator ,uma pilha de telas sera criada,uma em cima da outra,assim navegando entre telas
     Navigator.of(context).push(
       MaterialPageRoute(builder: (_) {
-        return CategoriesMelsScreen();
+        return CategoriesMelsScreen(category);
       }),
     );
   }
