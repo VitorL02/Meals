@@ -1,4 +1,3 @@
-import 'package:Meals/screens/categoriesMelsScreen.dart';
 import 'package:flutter/material.dart';
 import '../models/category.dart';
 
@@ -8,10 +7,9 @@ class CategoryItem extends StatelessWidget {
 
   void _selectCategory(BuildContext context) {
     //Pelo navigator ,uma pilha de telas sera criada,uma em cima da outra,assim navegando entre telas
-    Navigator.of(context).push(
-      MaterialPageRoute(builder: (_) {
-        return CategoriesMelsScreen(category);
-      }),
+    Navigator.of(context).pushNamed(
+      '/categories-meals',
+      arguments: category,
     );
   }
 

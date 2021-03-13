@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'screens/categoriesScreen.dart';
 import 'package:flutter/cupertino.dart';
+import 'screens/categoriesMelsScreen.dart';
 
 void main() => runApp(MealsApp());
 
@@ -22,6 +23,9 @@ class MealsApp extends StatelessWidget {
             ),
       ),
       home: CategoriesScreen(),
+      routes: {
+        '/categories-meals': (ctx) => CategoriesMealsScreen(),
+      },
     );
   }
 }
