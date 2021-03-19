@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/category.dart';
+import '../utils/appRoutes.dart';
 
 class CategoryItem extends StatelessWidget {
   final Category category;
@@ -8,7 +9,7 @@ class CategoryItem extends StatelessWidget {
   void _selectCategory(BuildContext context) {
     //Pelo navigator ,uma pilha de telas sera criada,uma em cima da outra,assim navegando entre telas
     Navigator.of(context).pushNamed(
-      '/categories-meals',
+      AppRoutes.Categories_Meals,
       arguments: category,
     );
   }
@@ -23,6 +24,7 @@ class CategoryItem extends StatelessWidget {
       child: Container(
         child: Text(
           category.title,
+          // ignore: deprecated_member_use
           style: Theme.of(context).textTheme.title,
         ),
         padding: const EdgeInsets.all(15),

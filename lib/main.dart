@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'screens/categoriesScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'screens/categoriesMelsScreen.dart';
+import 'utils/appRoutes.dart';
 
 void main() => runApp(MealsApp());
 
@@ -16,15 +17,16 @@ class MealsApp extends StatelessWidget {
         fontFamily: 'Raleway',
         canvasColor: Color.fromRGBO(255, 254, 229, 1),
         textTheme: ThemeData.light().textTheme.copyWith(
+              // ignore: deprecated_member_use
               title: TextStyle(
                 fontSize: 20,
                 fontFamily: 'RobotoCondensed',
               ),
             ),
       ),
-      home: CategoriesScreen(),
       routes: {
-        '/categories-meals': (ctx) => CategoriesMealsScreen(),
+        AppRoutes.HOME: (ctx) => CategoriesScreen(),
+        AppRoutes.Categories_Meals: (ctx) => CategoriesMealsScreen(),
       },
     );
   }
