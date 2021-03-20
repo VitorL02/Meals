@@ -23,19 +23,18 @@ class Meal {
   final Complexity complexity;
   final Cost cost;
 
-  const Meal({
-    @required this.id,
-    @required this.categories,
-    @required this.title,
-    @required this.imageUrl,
-    @required this.steps,
-    @required this.duration,
-    @required this.ingredients,
-    @required this.isGlutenFree,
-    @required this.isLactoseFree,
-    @required this.isVegan,
-    @required this.isVegetarian,
-    @required this.complexity,
-    @required this.cost
-  });
+  const Meal(
+      {@required this.id,
+      @required this.categories,
+      @required this.title,
+      @required this.imageUrl,
+      @required this.steps,
+      @required this.duration,
+      @required this.ingredients,
+      @required this.isGlutenFree,
+      @required this.isLactoseFree,
+      @required this.isVegan,
+      @required this.isVegetarian,
+      @required this.complexity,
+      @required this.cost});
 }
