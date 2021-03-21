@@ -30,6 +30,15 @@ class MealsApp extends StatelessWidget {
         AppRoutes.Categories_Meals: (ctx) => CategoriesMealsScreen(),
         AppRoutes.MealDetails: (ctx) => MealDetailScreen(),
       },
+
+      //onUnknownRoute : Quando não encontrada a pagina,esse metodo e chamado,e retorna pra pagina principal das categorias,similar ao erro 404 web
+      onUnknownRoute: (settings) {
+        return MaterialPageRoute(
+          builder: (_) {
+            return CategoriesScreen();
+          },
+        );
+      },
     );
   }
 }
