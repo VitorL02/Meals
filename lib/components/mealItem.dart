@@ -7,10 +7,16 @@ class MealItem extends StatelessWidget {
   const MealItem(this.meal);
 
   void _selectMeal(BuildContext context) {
-    Navigator.of(context).pushNamed(
+    Navigator.of(context)
+        .pushNamed(
       AppRoutes.MealDetails,
       arguments: meal,
-    );
+    )
+        .then((result) {
+      // Metodo then espera e logo depois executa,com ele e possivel buscar a informação de que a Meal foi favoritada
+      //(trabalha junto com o navigator.of.pop) conceito de async
+      if (result == null) {}
+    });
   }
 
   @override
