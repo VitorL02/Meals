@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'categoriesScreen.dart';
 import 'favoriteScreen.dart';
+import '../components/mainDrawer.dart';
 
 class TabsScreen extends StatelessWidget {
   @override
@@ -9,6 +10,7 @@ class TabsScreen extends StatelessWidget {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
+        drawer: MainDrawer(),
         appBar: AppBar(
           title: Text(
             'Vamos Cozinhar?',
