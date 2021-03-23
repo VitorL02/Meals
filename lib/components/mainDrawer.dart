@@ -41,10 +41,16 @@ class MainDrawer extends StatelessWidget {
         ),
         //Espaçamento
         SizedBox(height: 20),
-        _createItem(Icons.restaurant, 'Refeições',
-            () => Navigator.of(context).pushNamed(AppRoutes.HOME)),
-        _createItem(Icons.settings, 'Configurações',
-            () => Navigator.of(context).pushNamed(AppRoutes.SETTINGS)),
+        _createItem(
+          Icons.restaurant, 'Refeições',
+          () => Navigator.of(context).pushReplacementNamed(AppRoutes.HOME),
+          //pushReplacementNamed = Substitui a tela e não empilha,melhor performace
+        ),
+        _createItem(
+            Icons.settings,
+            'Configurações',
+            () =>
+                Navigator.of(context).pushReplacementNamed(AppRoutes.SETTINGS)),
       ],
     ));
   }
