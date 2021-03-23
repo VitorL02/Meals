@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'screens/categoriesScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'screens/categoriesMelsScreen.dart';
+import 'screens/settingsScreen.dart';
 import 'utils/appRoutes.dart';
 import 'screens/mealDetail.dart';
 import 'screens/tabsScreen.dart';
@@ -30,6 +31,7 @@ class MealsApp extends StatelessWidget {
         AppRoutes.HOME: (ctx) => TabsScreen(),
         AppRoutes.Categories_Meals: (ctx) => CategoriesMealsScreen(),
         AppRoutes.MealDetails: (ctx) => MealDetailScreen(),
+        AppRoutes.SETTINGS: (ctx) => SettingsScreen(),
       },
       //onUnknownRoute : Quando não encontrada a pagina,esse metodo e chamado,e retorna pra pagina principal das categorias,similar ao erro 404 web
       onUnknownRoute: (settings) {
