@@ -1,3 +1,4 @@
+import 'models/settings.dart';
 import 'package:flutter/material.dart';
 import 'screens/categoriesScreen.dart';
 import 'package:flutter/cupertino.dart';
@@ -17,7 +18,24 @@ class MealsApp extends StatefulWidget {
 }
 
 class _MealsAppState extends State<MealsApp> {
+  //Lista que passa o parametro pra a avaliableMeals,e por meio desse avaliable,a comunicação com a tela de config interage com que sera mostrado
   List<Meal> _avalibleMeals = DUMMY_MEALS;
+
+  void _filterSettings(Settings settings) {
+    setState(() {
+      _avalibleMeals = DUMMY_MEALS.where((meal) {
+        final filterGluten = settings.isGlutenFree && !meal.isGlutenFree;
+        final filterLactose = settings.isLactoseFree && !meal.isLactoseFree;
+        final filterVegan = settings.isVegan && !meal.isVegan;
+        final filterVegetarian = settings.isVegetarian && !meal.isVegetarian;
+        return !filterGluten &&
+            !filterLactose &&
+            !filterVegan &&
+            !filterVegetarian;
+      }).toList();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -40,7 +58,7 @@ class _MealsAppState extends State<MealsApp> {
         AppRoutes.Categories_Meals: (ctx) =>
             CategoriesMealsScreen(_avalibleMeals),
         AppRoutes.MealDetails: (ctx) => MealDetailScreen(),
-        AppRoutes.SETTINGS: (ctx) => SettingsScreen(),
+        AppRoutes.SETTINGS: (ctx) => SettingsScreen(_filterSettings),
       },
       //onUnknownRoute : Quando não encontrada a pagina,esse metodo e chamado,e retorna pra pagina principal das categorias,similar ao erro 404 web
       onUnknownRoute: (settings) {
