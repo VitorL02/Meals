@@ -18,11 +18,16 @@ class MealsApp extends StatefulWidget {
 }
 
 class _MealsAppState extends State<MealsApp> {
+  //Variavel que guarda o estado dos filtros da pagina de config
+  Settings settings = Settings();
+
   //Lista que passa o parametro pra a avaliableMeals,e por meio desse avaliable,a comunicação com a tela de config interage com que sera mostrado
   List<Meal> _avalibleMeals = DUMMY_MEALS;
 
   void _filterSettings(Settings settings) {
     setState(() {
+      this.settings = settings;
+
       _avalibleMeals = DUMMY_MEALS.where((meal) {
         final filterGluten = settings.isGlutenFree && !meal.isGlutenFree;
         final filterLactose = settings.isLactoseFree && !meal.isLactoseFree;
@@ -58,7 +63,7 @@ class _MealsAppState extends State<MealsApp> {
         AppRoutes.Categories_Meals: (ctx) =>
             CategoriesMealsScreen(_avalibleMeals),
         AppRoutes.MealDetails: (ctx) => MealDetailScreen(),
-        AppRoutes.SETTINGS: (ctx) => SettingsScreen(_filterSettings),
+        AppRoutes.SETTINGS: (ctx) => SettingsScreen(_filterSettings, settings),
       },
       //onUnknownRoute : Quando não encontrada a pagina,esse metodo e chamado,e retorna pra pagina principal das categorias,similar ao erro 404 web
       onUnknownRoute: (settings) {
