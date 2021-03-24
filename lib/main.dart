@@ -24,6 +24,8 @@ class _MealsAppState extends State<MealsApp> {
   //Lista que passa o parametro pra a avaliableMeals,e por meio desse avaliable,a comunicação com a tela de config interage com que sera mostrado
   List<Meal> _avalibleMeals = DUMMY_MEALS;
 
+  List<Meal> _favoriteMeals = [];
+
   void _filterSettings(Settings settings) {
     setState(() {
       this.settings = settings;
@@ -39,6 +41,19 @@ class _MealsAppState extends State<MealsApp> {
             !filterVegetarian;
       }).toList();
     });
+  }
+
+//Gerencia o estado
+  void _toggleFavorite(Meal meal) {
+    setState(() {
+      _favoriteMeals.contains(meal)
+          ? _favoriteMeals.remove(meal)
+          : _favoriteMeals.add(meal);
+    });
+  }
+
+  bool _isFavorite(Meal meal) {
+    return _favoriteMeals.contains(meal);
   }
 
   @override
@@ -59,10 +74,11 @@ class _MealsAppState extends State<MealsApp> {
             ),
       ),
       routes: {
-        AppRoutes.HOME: (ctx) => TabsScreen(),
+        AppRoutes.HOME: (ctx) => TabsScreen(_favoriteMeals),
         AppRoutes.Categories_Meals: (ctx) =>
             CategoriesMealsScreen(_avalibleMeals),
-        AppRoutes.MealDetails: (ctx) => MealDetailScreen(),
+        AppRoutes.MealDetails: (ctx) =>
+            MealDetailScreen(_toggleFavorite, _isFavorite),
         AppRoutes.SETTINGS: (ctx) => SettingsScreen(_filterSettings, settings),
       },
       //onUnknownRoute : Quando não encontrada a pagina,esse metodo e chamado,e retorna pra pagina principal das categorias,similar ao erro 404 web
