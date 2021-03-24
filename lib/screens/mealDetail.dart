@@ -7,6 +7,7 @@ class MealDetailScreen extends StatelessWidget {
       margin: EdgeInsets.symmetric(vertical: 10),
       child: Text(
         title,
+        // ignore: deprecated_member_use
         style: Theme.of(context).textTheme.title,
       ),
     );
