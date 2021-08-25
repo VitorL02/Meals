@@ -3,7 +3,7 @@
 A new Flutter project.
 
 Continuando os Estudos do Framework Flutter da Google junto da COD3R , Criei o Meals App, um app focado na navegação de rotas e que trabalha com Receitas,afinal nesses tempos Inovar na cozinha ajuda todos os Dias!!!
-<div class = "center">
+<div align = "center">
 [1616674318754](https://user-images.githubusercontent.com/68614036/115158280-c60ed780-a063-11eb-8e7c-3a56f31cca43.jpg)
 ![1616674318896](https://user-images.githubusercontent.com/68614036/115158285-cad38b80-a063-11eb-81fe-ee45defc0d54.jpg)
 ![1616674318838](https://user-images.githubusercontent.com/68614036/115158286-cd35e580-a063-11eb-9dc4-39d042f9e182.jpg)
